@@ -81,6 +81,18 @@ function Animals(){
 		dog.sleep();
 		dog.eat();
 
+	// 工厂模式创建对象
+
+	function creatObj(name,age){
+		var obj={};
+		obj.age=age;
+		obj.name=name;
+  		return obj;
+	}
+	var perp=creatObj('bifan',34);
+	console.log(perp);
+
+
 	</script>
 </body>
 </html>
