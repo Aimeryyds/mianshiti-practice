@@ -1,0 +1,86 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>js继承学习</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		article{
+			width: 100%;
+			height:200px;
+			background-color: #267BD5;
+			font-size: 50px;
+			text-align: center;
+			line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<article>
+		js继承学习
+	</article>
+
+	<script type="text/javascript" charset="utf-8" async defer>
+		// 1：原型链继承		
+		function Animals(){
+			this.name=32;
+			this.agent="female";
+			this.eat=function(){
+				console.log('i am eating');
+			}
+			// eat:function(){
+			// 	console.log('i am eating');
+			// }
+		}
+		function Dog(){
+			this.name='bf';
+		}
+		Dog.prototype=new Animals();
+		var dog=new Dog();
+		console.log(dog.name+"原型链继承"+dog.agent+'--');
+
+
+	// 2：借用构造函数执行
+	function Animals(){
+			this.name=32;
+			this.agent="female";
+			// eat:function(){
+			// 	console.log('i am eating');
+			// }
+		}
+		function Dog(){
+			Animals.call(this);
+			this.name='bf';
+		}
+		// Dog.prototype=new Animals();
+		var dog=new Dog();
+		console.log(dog.name+'--借用构造函数执行--'+dog.agent);
+
+// 3：原型继承
+
+function Animals(){
+			this.name=32;
+			this.agent="female";
+			this.eat=function(){
+				console.log('i am eating');
+			}
+			// eat:function(){
+			// 	console.log('i am eating');
+			// }
+		}
+		function Dog(){
+			this.name='bf';
+		}
+		// Dog.prototype=new Animals();
+		Dog.prototype.sleep=function(){
+			console.log('dog is sleeping');
+		}
+		var dog=new Dog();
+		console.log(dog.name+"原型继承"+dog.agent+'--');
+		dog.sleep();
+		dog.eat();
+
+	</script>
+</body>
+</html>
